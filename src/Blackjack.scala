@@ -16,7 +16,7 @@ object Blackjack {
   }
 
   def eval(hand: Seq[Card], hCount: Int = 0): Int = {
-    val count = hand.map(_.get("soft")).sum - hCount * 10
+    val count = hand.map(_.get).sum - hCount * 10
 
     count match {
       case count if (count > 21 && hCount < countA(hand)) => return eval(hand, hCount + 1)
